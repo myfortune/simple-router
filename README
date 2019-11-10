@@ -1,25 +1,5 @@
-TODO:
+# Simple Router
 
-1) translation for incoming TCP packets (the code should be pretty similar to
-what I wrote for outgoing TCP packets)
+For csc458.
 
-2) cleaning up defunct mappings (sr_nat_timeout), including making the
-timeout intervals configurable via command line flags
-
-3) unsolicited inbound SYN packets (need to create a struct for these TCP SYNs
-and a linked list of them in our NAT struct). “Your NAT MUST NOT respond to an
-unsolicited inbound SYN packet for at least 6 seconds after the packet is
-received. If during this interval the NAT receives and translates an outbound
-SYN for the connection the NAT MUST silently drop the original unsolicited
-inbound SYN packet. Otherwise, the NAT MUST send an ICMP Port Unreachable error
-(Type 3, Code 3) for the original SYN. If your NAT cannot determine whether the
-endpoints of a TCP connection are active, it MUST abandon the session if it has
-been idle for some time. In such cases, the value of the "established connection
-idle-timeout" MUST NOT be less than 2 hours 4 minutes. The value of the
-"transitory connection idle-timeout" MUST NOT be less than 4 minutes. This value
-MUST be configurable, as described below. EDIT: Note you MUST timeout idle
-connections.”
-
-4) TCP checksum
-
-5) sr_nat_destroy
+Written in C, this router handles network communication at low level (TCP).
